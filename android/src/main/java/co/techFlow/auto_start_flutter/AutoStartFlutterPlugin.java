@@ -18,7 +18,6 @@ import android.content.ComponentName;
 import java.util.*;
 import android.content.pm.ResolveInfo;
 import android.util.Log;
-import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 /** AutoStartFlutterPlugin */
 public class AutoStartFlutterPlugin implements FlutterPlugin, MethodCallHandler {
@@ -45,7 +44,38 @@ public class AutoStartFlutterPlugin implements FlutterPlugin, MethodCallHandler 
     if(call.method.equals("permit-auto-start")){
       addAutoStartup();
     } else  if (call.method.equals("isAutoStartPermission")) {
-      result.success(AutoStartPermissionHelper.getInstance().isAutoStartPermissionAvailable(context));
+      String manufacturer = android.os.Build.MANUFACTURER;
+      if ("xiaomi".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("poco".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("redmi".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("letv".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("oppo".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("vivo".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("letv".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("honor".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("huawei".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      }else if ("samsung".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      }else if ("oneplus".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      }else if ("nokia".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      }else if ("asus".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      } else if ("realme".equalsIgnoreCase(manufacturer)) {
+        result.success(true);
+      }else{
+        result.success(false);
+      }
     }else {
       result.notImplemented();
     }
@@ -64,14 +94,22 @@ public class AutoStartFlutterPlugin implements FlutterPlugin, MethodCallHandler 
       String manufacturer = android.os.Build.MANUFACTURER;
       if ("xiaomi".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+      } else if ("poco".equalsIgnoreCase(manufacturer)) {
+        intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+      } else if ("redmi".equalsIgnoreCase(manufacturer)) {
+        intent.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+      } else if ("letv".equalsIgnoreCase(manufacturer)) {
+        intent.setComponent(new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.AutobootManageActivity"));
       } else if ("oppo".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.coloros.safecenter", "com.coloros.safecenter.permission.startup.StartupAppListActivity"));
       } else if ("vivo".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.BgStartUpManagerActivity"));
-      } else if ("Letv".equalsIgnoreCase(manufacturer)) {
+      } else if ("letv".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.AutobootManageActivity"));
-      } else if ("Honor".equalsIgnoreCase(manufacturer)) {
+      } else if ("honor".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity"));
+      } else if ("huawei".equalsIgnoreCase(manufacturer)) {
+        intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity"));
       }else if ("samsung".equalsIgnoreCase(manufacturer)) {
         intent.setComponent(new ComponentName("com.samsung.android.lool", "com.samsung.android.sm.battery.ui.BatteryActivity"));
       }else if ("oneplus".equalsIgnoreCase(manufacturer)) {

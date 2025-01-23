@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:8.3.0'
     }
 }
 
@@ -39,6 +39,5 @@ android {
 
 
 dependencies {
-
-    implementation 'com.github.judemanutd:autostarter:1.0.8'
+//    implementation 'com.github.judemanutd:autostarter:1.1.0'
 }
