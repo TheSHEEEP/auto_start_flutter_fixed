@@ -27,10 +27,10 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'co.techFlow.auto_start_flutter'
-    compileSdkVersion 29
+    compileSdk = flutter.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 16
+        minSdk = flutter.minSdkVersion
     }
     lintOptions {
         disable 'InvalidPackage'
